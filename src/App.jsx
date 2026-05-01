@@ -4,13 +4,19 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import NotesApp from './NotesApp'
 
+import CreateNote from './CreateNote.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [notes, setNotes] = useState(['hello', 'world']);
 
+  const addNote = (newNote) => {
+    setNotes([...notes, newNote]);
+  };
   return (
     <>
-      <NotesApp />
+      <CreateNote onAddNote={addNote} />
+      <NotesApp notes={notes} />
     </>
   )
 }
