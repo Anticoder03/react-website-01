@@ -1,21 +1,22 @@
-import React from 'react'
-import { useState } from 'react'
-import './NotesApp.css'
-import CreateNote from './CreateNote';
-const NotesApp = ({notes}) => {
-
+import React from 'react';
+import './NotesApp.css';
+const NotesApp = ({ notes, onDeleteNote }) => {
   return (
     <>
+      <h1>All Your Notes:</h1>
 
-      <h1>All Yopur Notes </h1>
-
-     <ul className='list'>
+      <ul className="list">
         {notes.map((n, index) => (
-            <li className='item' key={index}>{n}</li>
+          <li className="item" key={index}>
+            {n}
+            <button className='del_btn' onClick={() => onDeleteNote(index)}>
+              Delete
+            </button>
+          </li>
         ))}
-     </ul>
+      </ul>
     </>
-  )
-}
+  );
+};
 
-export default NotesApp
+export default NotesApp;

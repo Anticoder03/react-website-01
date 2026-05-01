@@ -1,11 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import NotesApp from './NotesApp'
-
 import CreateNote from './CreateNote.jsx'
-
 
 function App() {
   const [notes, setNotes] = useState(['hello', 'world']);
@@ -13,10 +8,16 @@ function App() {
   const addNote = (newNote) => {
     setNotes([...notes, newNote]);
   };
+
+  const deleteNote = (indexToDelete) => {
+    const updatedNotes = notes.filter((_, index) => index !== indexToDelete);
+    setNotes(updatedNotes);
+  };
+
   return (
     <>
       <CreateNote onAddNote={addNote} />
-      <NotesApp notes={notes} />
+      <NotesApp notes={notes} onDeleteNote={deleteNote} />
     </>
   )
 }
