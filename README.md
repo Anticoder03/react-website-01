@@ -104,7 +104,7 @@ This project is a beginner-friendly step into React development. It focuses more
 ## 👨‍💻 Author
 
 Ashish Prajapati
-GitHub: https://github.com/Anticoder03
+
 
 ---
 
